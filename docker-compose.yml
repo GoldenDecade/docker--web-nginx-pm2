@@ -16,5 +16,3 @@ services:
       - ./web:/usr/share/nginx/html
       - ./nginx/logs:/var/log/nginx
     container_name: nginx-host
-    links:
-      - newbackend
