@@ -3,8 +3,8 @@ const Router = require('koa-router');
 const app = new Koa();
 const router = new Router();
 // app.use(ctx => { ctx.body = 'Hello pm2' });
-router.post('/login', (ctx) => {
-	ctx.body = 'hello pm2'
+router.post('/login', (ctx, next) => {
+	ctx.response.body = 'hello pm2';
 })
 
 router.get('/abc', (ctx, next) => {
