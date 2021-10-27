@@ -1,0 +1,16 @@
+services:
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - 8091:80
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./web:/usr/share/nginx/html
+      - ./nginx/logs:/var/log/nginx
+  app-pm2:
+    container_name: app-pm2
+    build: ./pm2
+    ports:
+      - 3002:3002
+    restart: always
