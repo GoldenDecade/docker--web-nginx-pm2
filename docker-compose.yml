@@ -6,8 +6,6 @@ services:
     ports:
       - 3002:3002
     restart: always
-    networks:
-      - app-network
   nginx-host:
     restart: always
     image: nginx
@@ -18,8 +16,5 @@ services:
       - ./web:/usr/share/nginx/html
       - ./nginx/logs:/var/log/nginx
     container_name: nginx-host
-    networks:
-      - app-network
-networks:
-  app-network:
-    driver: bridge
+    links:
+      - newbackend
